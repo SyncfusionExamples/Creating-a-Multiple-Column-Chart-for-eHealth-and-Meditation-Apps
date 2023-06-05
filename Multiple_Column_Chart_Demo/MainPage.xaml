@@ -91,6 +91,18 @@
 
             <Chart:SfCartesianChart.Legend>
                 <Chart:ChartLegend Placement="Left">
+                    <Chart:ChartLegend.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Margin="{OnPlatform MacCatalyst='20, 0, 0, 0'}">
+                                <Rectangle HeightRequest="{OnPlatform MacCatalyst='22', Android='13', WinUI='15', iOS='15'}"
+                                           WidthRequest="{OnPlatform MacCatalyst='22', Android='13', WinUI='15', iOS='15'}"
+                                           Fill="{Binding IconBrush}"/>
+                                <Label Margin="10,0,10,0" VerticalTextAlignment="Center"
+                                       Text="{Binding Item.Label}"
+                                       FontSize="{OnPlatform WinUI='14', Android='10', MacCatalyst='22', iOS='15'}" TextColor="Black"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </Chart:ChartLegend.ItemTemplate>
                 </Chart:ChartLegend>
             </Chart:SfCartesianChart.Legend>
 
@@ -114,18 +126,18 @@
                                      ShowMajorGridLines="False"/>
             </Chart:SfCartesianChart.YAxes>
 
-            <Chart:ColumnSeries Label="Contraception/fertility apps" LegendIcon="Rectangle"
+            <Chart:ColumnSeries Label="Contraception/fertility apps" 
                                 XBindingPath="Year" YBindingPath="FertilityApp"
                                 ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FFF6ACAD"
                                 DataLabelSettings="{StaticResource labelSettings}"/>
-            <Chart:ColumnSeries Label="Medication checker apps" LegendIcon="Rectangle"
+            <Chart:ColumnSeries Label="Medication checker apps"
                                 XBindingPath="Year" YBindingPath="MedicationCheckerApp"
                                 Spacing="0.1"
                                 ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FF00BFAF"
                                 DataLabelSettings="{StaticResource labelSettings}"/>
-            <Chart:ColumnSeries Label="Meditation apps" LegendIcon="Rectangle"
+            <Chart:ColumnSeries Label="Meditation apps" 
                                 XBindingPath="Year" YBindingPath="MeditationApp"
                                 ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FF855FF2"
