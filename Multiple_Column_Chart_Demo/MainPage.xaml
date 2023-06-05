@@ -69,9 +69,9 @@
             </Chart:SfCartesianChart.PlotAreaBackgroundView>
 
             <Chart:SfCartesianChart.Title>
-                <Grid>
+                <Grid Margin="{OnPlatform iOS='-40, 0, 0, 0', MacCatalyst='-5, 0, 0,0'}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="13"/>
+                        <ColumnDefinition Width="{OnPlatform Android='13', WinUI='13', iOS='13', MacCatalyst='20'}"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <VerticalStackLayout Background="#FF855FF2" Margin="0, 5" Grid.RowSpan="2"/>
