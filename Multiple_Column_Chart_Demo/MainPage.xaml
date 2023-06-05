@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multiple_Column_Chart_Demo.MainPage"
+             xmlns:Chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:Multiple_Column_Chart_Demo">
+
+    <Grid Margin="15">
+        <Grid.BindingContext>
+            <local:RevenueDetails/>
+        </Grid.BindingContext>
+        <Grid.Resources>
+            <Chart:CartesianDataLabelSettings x:Key="labelSettings" 
+                                                  LabelPlacement="Outer"
+                                                  UseSeriesPalette="False">
+                <Chart:CartesianDataLabelSettings.LabelStyle>
+                    <Chart:ChartDataLabelStyle FontSize="{OnPlatform Android='10', WinUI='15', iOS='10', MacCatalyst='15'}"
+                                                   FontAttributes="Bold"
+                                                   LabelFormat="$#,###.0M"/>
+                </Chart:CartesianDataLabelSettings.LabelStyle>
+            </Chart:CartesianDataLabelSettings>
+        </Grid.Resources>
+
+        <Chart:SfCartesianChart x:Name="chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Chart:SfCartesianChart.PlotAreaBackgroundView>
+                <AbsoluteLayout>
+                    <Grid AbsoluteLayout.LayoutBounds="{OnPlatform Android='0.15, -0.1, 200, 100', WinUI='0.05, 0.25, 250, 100', iOS='0.05, 0.88, 100, 300', MacCatalyst='0.08, 0.25, 175, 200'}" AbsoluteLayout.LayoutFlags="PositionProportional" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{OnPlatform Android='100', WinUI='100', MacCatalyst='175', iOS='100'}"/>
+                            <ColumnDefinition Width="{OnPlatform Android='150', WinUI='150', MacCatalyst='230', iOS='150'}"/>
+                        </Grid.ColumnDefinitions>
+                        <Chart:SfCircularChart   >
+                            <Chart:SfCircularChart.Resources>
+                                <ResourceDictionary>
+                                    <local:CornerRadiusConverter x:Key="innerRadiusConverter"/>
+                                </ResourceDictionary>
+                            </Chart:SfCircularChart.Resources>
+
+                            <Chart:RadialBarSeries Radius="1" x:Name="series" InnerRadius="0.7" StartAngle="-90" 
+                                                   EndAngle="270" TrackFill="#77FFDB"  MaximumValue="100" 
+                                                   ItemsSource="{Binding MeditationAppUsers}" XBindingPath="Year" 
+                                                   YBindingPath="Revenue" >
+                                <Chart:RadialBarSeries.CenterView>
+                                    <Border x:Name="border" Stroke="GhostWhite" HeightRequest="{Binding CenterHoleSize}"
+                                                   WidthRequest="{Binding CenterHoleSize}"
+                                                   BackgroundColor="GhostWhite">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle BackgroundColor="GhostWhite" 
+                                                            CornerRadius="{Binding CenterHoleSize,Converter={StaticResource innerRadiusConverter},Source={x:Reference series}}"/>
+                                        </Border.StrokeShape>
+                                        <Border.Shadow>
+                                            <Shadow Brush="GhostWhite" Opacity="{OnPlatform Android='0.6',iOS='0.6',WinUI='0.5',MacCatalyst='0.5'}" 
+                                                    Radius="{OnPlatform Android='20',iOS='20',WinUI='50',MacCatalyst='50'}"/>
+                                        </Border.Shadow>
+                                        <StackLayout>
+                                            <Label Text="28%" FontAttributes="Bold" TextColor="#FF00BFAF" FontSize="17" 
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center" />
+                                        </StackLayout>
+                                    </Border>
+                                </Chart:RadialBarSeries.CenterView>
+                            </Chart:RadialBarSeries>
+                        </Chart:SfCircularChart>
+                        <Label Text="of Americans have used a medication checker app in 2022" FontSize="{OnPlatform Android='13', MacCatalyst='22', iOS='13'}"
+                               Margin="{OnPlatform Android='0,25,0,0', WinUI='0,15,0,0', MacCatalyst='0, 50, 0, 0', iOS='0, 120, 0, 0'}" Grid.Column="1" />
+                    </Grid>
+                </AbsoluteLayout>
+            </Chart:SfCartesianChart.PlotAreaBackgroundView>
+
+            <Chart:SfCartesianChart.Title>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Background="#FF855FF2" Margin="0, 5" Grid.RowSpan="2"/>
+                    <VerticalStackLayout Grid.Column="1" Margin="5" >
+                        <Label Text="The Billion Dollar Breathe In, Breathe Out Routine" 
+                                    HorizontalTextAlignment="Start"
+                                    FontSize="{OnPlatform Android='Title', WinUI='Header', iOS='Title', MacCatalyst='40'}"
+                                    TextColor="Black"/>
+                        <Label Text="Estimated eHealth and meditation app revenue based on premium options and in-app purchases in the U.S." 
+                                    HorizontalTextAlignment="Start"
+                                    FontSize="{OnPlatform Android='Header', WinUI='Title', iOS='Header', MacCatalyst='30'}"
+                                    TextColor="#FF5E768E"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Chart:SfCartesianChart.Title>
+
+            <Chart:SfCartesianChart.Legend>
+                <Chart:ChartLegend Placement="Left">
+                    <Chart:ChartLegend.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Margin="{OnPlatform MacCatalyst='20, 0, 0, 0'}">
+                                <Rectangle HeightRequest="{OnPlatform MacCatalyst='22', Android='13', WinUI='15', iOS='15'}"
+                                           WidthRequest="{OnPlatform MacCatalyst='22', Android='13', WinUI='15', iOS='15'}"
+                                           Fill="{Binding IconBrush}"/>
+                                <Label Margin="10,0,10,0" VerticalTextAlignment="Center"
+                                       Text="{Binding Item.Label}"
+                                       FontSize="{OnPlatform WinUI='14', Android='10', MacCatalyst='22', iOS='15'}" TextColor="Black"/>
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </Chart:ChartLegend.ItemTemplate>
+                </Chart:ChartLegend>
+            </Chart:SfCartesianChart.Legend>
+
+            <Chart:SfCartesianChart.XAxes>
+                <Chart:CategoryAxis ShowMajorGridLines="False" >
+                    <Chart:CategoryAxis.AxisLineStyle>
+                        <Chart:ChartLineStyle StrokeWidth="0"/>
+                    </Chart:CategoryAxis.AxisLineStyle>
+                    <Chart:CategoryAxis.MajorTickStyle>
+                        <Chart:ChartAxisTickStyle StrokeWidth="0"/>
+                    </Chart:CategoryAxis.MajorTickStyle>
+                    <Chart:CategoryAxis.LabelStyle>
+                        <Chart:ChartAxisLabelStyle
+                            FontSize="{OnPlatform Android='15', WinUI='20', MacCatalyst='20', iOS='15'}"/>
+                    </Chart:CategoryAxis.LabelStyle>
+                </Chart:CategoryAxis>
+            </Chart:SfCartesianChart.XAxes>
+
+            <Chart:SfCartesianChart.YAxes>
+                <Chart:NumericalAxis IsVisible="False" Maximum="{OnPlatform MacCatalyst='1300'}"
+                                     ShowMajorGridLines="False"/>
+            </Chart:SfCartesianChart.YAxes>
+
+            <Chart:ColumnSeries Label="Contraception/fertility apps" 
+                                XBindingPath="Year" YBindingPath="Revenue"
+                                ItemsSource="{Binding FertilityAppData}"
+                                ShowDataLabels="True" Fill="#FFF6ACAD"
+                                DataLabelSettings="{StaticResource labelSettings}"/>
+            <Chart:ColumnSeries Label="Medication checker apps" 
+                                XBindingPath="Year" YBindingPath="Revenue"
+                                Spacing="0.1"
+                                ItemsSource="{Binding MedicationCheckerAppData}"
+                                ShowDataLabels="True" Fill="#FF00BFAF"
+                                DataLabelSettings="{StaticResource labelSettings}"/>
+            <Chart:ColumnSeries Label="Meditation apps" 
+                                XBindingPath="Year" YBindingPath="Revenue"
+                                ItemsSource="{Binding MeditationAppData}"
+                                ShowDataLabels="True" Fill="#FF855FF2"
+                                DataLabelSettings="{StaticResource labelSettings}"/>
+        </Chart:SfCartesianChart>
+
+    </Grid>
+</ContentPage>
