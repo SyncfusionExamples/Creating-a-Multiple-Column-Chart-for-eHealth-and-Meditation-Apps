@@ -8,13 +8,24 @@ namespace Multiple_Column_Chart_Demo
 {
     public class RevenueDetailModel
     {
-        public RevenueDetailModel(double year, double revenue)
+        public RevenueDetailModel(string year, double fertilityAppRevenue, double medicationCheckerAppRevenue, double meditationAppRevenue)
         {
             Year = year;
-            Revenue = revenue;
+            FertilityAppRevenue = fertilityAppRevenue;
+            MedicationCheckerAppRevenue = medicationCheckerAppRevenue;
+            MeditationAppRevenue = meditationAppRevenue;
         }
 
-        public double Year { get; set; }
-        public double Revenue { get; set; }
+        public RevenueDetailModel(string year, double meditationAppUsers)
+        {
+            Year = year;
+            MeditationAppUsers = meditationAppUsers;
+        }
+
+        public string Year { get; set; }
+        public double FertilityAppRevenue { get; set; }
+        public double MedicationCheckerAppRevenue { get; set; }
+        public double MeditationAppRevenue { get; set; }
+        public double MeditationAppUsers { get; set; }
     }
 }
