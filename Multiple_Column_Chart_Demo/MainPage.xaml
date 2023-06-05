@@ -40,7 +40,7 @@
                             <Chart:RadialBarSeries Radius="1" x:Name="series" InnerRadius="0.7" StartAngle="-90" 
                                                    EndAngle="270" TrackFill="#77FFDB"  MaximumValue="100" 
                                                    ItemsSource="{Binding MeditationAppUsers}" XBindingPath="Year" 
-                                                   YBindingPath="Revenue" >
+                                                   YBindingPath="MeditationAppUsers" >
                                 <Chart:RadialBarSeries.CenterView>
                                     <Border x:Name="border" Stroke="GhostWhite" HeightRequest="{Binding CenterHoleSize}"
                                                    WidthRequest="{Binding CenterHoleSize}"
@@ -80,7 +80,7 @@
                                     HorizontalTextAlignment="Start"
                                     FontSize="{OnPlatform Android='Title', WinUI='Header', iOS='Title', MacCatalyst='40'}"
                                     TextColor="Black"/>
-                        <Label Text="Estimated eHealth and meditation app revenue based on premium options and in-app purchases in the U.S." 
+                        <Label Text="Estimated premium option/in-app purchase revenues of eHealth and meditation app in the U.S." 
                                     HorizontalTextAlignment="Start"
                                     FontSize="{OnPlatform Android='Header', WinUI='Title', iOS='Header', MacCatalyst='30'}"
                                     TextColor="#FF5E768E"/>
@@ -127,19 +127,19 @@
             </Chart:SfCartesianChart.YAxes>
 
             <Chart:ColumnSeries Label="Contraception/fertility apps" 
-                                XBindingPath="Year" YBindingPath="Revenue"
-                                ItemsSource="{Binding FertilityAppData}"
+                                XBindingPath="Year" YBindingPath="FertilityAppRevenue"
+                                ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FFF6ACAD"
                                 DataLabelSettings="{StaticResource labelSettings}"/>
             <Chart:ColumnSeries Label="Medication checker apps" 
-                                XBindingPath="Year" YBindingPath="Revenue"
+                                XBindingPath="Year" YBindingPath="MedicationCheckerAppRevenue"
                                 Spacing="0.1"
-                                ItemsSource="{Binding MedicationCheckerAppData}"
+                                ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FF00BFAF"
                                 DataLabelSettings="{StaticResource labelSettings}"/>
             <Chart:ColumnSeries Label="Meditation apps" 
-                                XBindingPath="Year" YBindingPath="Revenue"
-                                ItemsSource="{Binding MeditationAppData}"
+                                XBindingPath="Year" YBindingPath="MeditationAppRevenue"
+                                ItemsSource="{Binding AppRevenues}"
                                 ShowDataLabels="True" Fill="#FF855FF2"
                                 DataLabelSettings="{StaticResource labelSettings}"/>
         </Chart:SfCartesianChart>
