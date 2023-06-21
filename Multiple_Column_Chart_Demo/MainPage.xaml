@@ -63,7 +63,7 @@
                                 </Chart:RadialBarSeries.CenterView>
                             </Chart:RadialBarSeries>
                         </Chart:SfCircularChart>
-                        <Label Text="of Americans have used a medication checker app in 2022" FontSize="{OnPlatform Android='13', MacCatalyst='22', iOS='13'}"
+                        <Label Text="28% of Americans used a medication checker app in 2022." FontSize="{OnPlatform Android='13', MacCatalyst='22', iOS='13'}"
                                Margin="{OnPlatform Android='0,25,0,0', WinUI='0,15,0,0', MacCatalyst='0, 50, 0, 0', iOS='0, 120, 0, 0'}" Grid.Column="1" />
                     </Grid>
                 </AbsoluteLayout>
@@ -79,9 +79,9 @@
                     <VerticalStackLayout Grid.Column="1" Margin="5" >
                         <Label Text="The Billion Dollar Breathe In, Breathe Out Routine" 
                                     HorizontalTextAlignment="Start"
-                                    FontSize="{OnPlatform Android='Title', WinUI='Header', iOS='Title', MacCatalyst='40'}"
+                                    FontSize="{OnPlatform Android='Title', WinUI='35', iOS='Title', MacCatalyst='40'}"
                                     TextColor="Black"/>
-                        <Label Text="Estimated premium option/in-app purchase revenues of eHealth and meditation app in the U.S." 
+                        <Label Text="Estimated in-app purchase revenue of e-health and meditation apps in the U.S." 
                                     HorizontalTextAlignment="Start"
                                     FontSize="{OnPlatform Android='Header', WinUI='Title', iOS='Header', MacCatalyst='30'}"
                                     TextColor="#FF5E768E"/>
