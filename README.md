@@ -5,4 +5,4 @@ According to the [Statista Health Market Insights study](https://www.statista.co
 
 <img width="948" alt="Windows" src="https://github.com/SyncfusionExamples/Creating-a-Multiple-Column-Chart-for-eHealth-and-Meditation-Apps/assets/105496706/41bbc746-9bdf-42ec-ad58-2b9f455229ad">
 
-For a step by step procedure, refer to the [Multiple Column Chart for eHealth and Meditation Apps blog]()
+For a step by step procedure, refer to the [Multiple Column Chart for eHealth and Meditation Apps blog](https://www.syncfusion.com/blogs/post/dotnet-maui-multiple-column-chart-visualize-health-app-revenue.aspx)
