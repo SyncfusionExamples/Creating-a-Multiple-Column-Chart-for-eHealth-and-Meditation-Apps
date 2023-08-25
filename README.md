@@ -7,15 +7,5 @@ According to the [Statista Health Market Insights study](https://www.statista.co
 
 ### Customizing the chart appearance
 We have personalized the appearance of our chart by adding a chart title and legend, as well as customizing elements such as the plot area background, axis elements, series, etc.
-#### Adding a chart title
-Chart title will provide context to the data being plotted.
-#### Adding a chart legend
-The legend contains a list of series in the chart. Enabling the chart legend allows us to identify the corresponding data series in the chart.
-#### Chart’s plot area background view customization
-The SfCartesianChart allows you to add any view to the chart plot area. In this example, we’ll add a SfCircularChart to the background of the Cartesian chart.
-#### Chart axis customization
-Cartesian chart axes provide support for customizing the style of the axis lines. In this example, we have disabled the axis grid lines and hidden the axis line.
-#### Chart series customization
-The series’ appearance can be customized by assigning different fill colors to each series and enabling data labels for the series segments.
 
 For a detailed explanation, refer to the [Multiple Column Chart for eHealth and Meditation Apps blog](https://www.syncfusion.com/blogs/post/dotnet-maui-multiple-column-chart-visualize-health-app-revenue.aspx)
