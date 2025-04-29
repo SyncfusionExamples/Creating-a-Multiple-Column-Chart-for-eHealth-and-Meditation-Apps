@@ -29,4 +29,3 @@ namespace Multiple_Column_Chart_Demo
         }
     }
 }
-
