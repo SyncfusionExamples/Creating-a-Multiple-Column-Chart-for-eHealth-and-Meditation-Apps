@@ -1,15 +1,16 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Multiple_Column_Chart_Demo;
-
-[Application]
-public class MainApplication : MauiApplication
+namespace Multiple_Column_Chart_Demo
 {
-	public MainApplication(IntPtr handle, JniHandleOwnership ownership)
-		: base(handle, ownership)
-	{
-	}
+    [Application]
+    public class MainApplication : MauiApplication
+    {
+        public MainApplication(IntPtr handle, JniHandleOwnership ownership)
+            : base(handle, ownership)
+        {
+        }
 
-	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    }
 }

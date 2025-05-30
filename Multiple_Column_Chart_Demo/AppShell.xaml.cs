@@ -1,9 +1,10 @@
-﻿namespace Multiple_Column_Chart_Demo;
-
-public partial class AppShell : Shell
+﻿namespace Multiple_Column_Chart_Demo
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
 }
